@@ -20,6 +20,7 @@
 
 	<!-- STYLE -->
 	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/general.css">
 
 	<!-- VUE JS CND --> 
 	<script src="https://unpkg.com/vue@3"></script>
@@ -32,6 +33,104 @@
 </head>
 
 <body>
+	<header></header>
+	<div class="container">
+		<div class="content-box">
+			<div class="content-left">
+				<div class="box-header d-flex align-items-center justify-content-between ps-3 pe-3">
+					<div>
+						<img src="./img/avatar_io.jpg" alt="">
+						<span class="bold-text">Sofia</span>
+					</div>
+					<div>
+						<i class="fa-solid fa-circle-notch"></i>
+						<i class="fa-solid fa-message"></i>
+						<i class="fa-solid fa-ellipsis-vertical"></i>
+					</div>
+				</div>
+				<div class="notification-alert d-flex align-items-center">
+					<div class="bell-box ms-3">
+						<i class="fa-solid fa-bell-slash" id="bell"></i>
+					</div>
+					<div class="ms-3">
+						<span class="bold-text d-block">Ricevi notifiche di nuovi messaggi</span>
+						<span class="dark-gray-text d-block">Attiva notifiche desktop</span>
+					</div>
+				</div>
+				<div class="search-chat-box align-items-center d-flex justify-content-center">
+					<div class="input-group input-left mb-3">
+						<span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass" id="search-chat"></i></span>
+						<input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Cerca o inizia una nuova chat" aria-describedby="basic-addon1">
+					</div>
+				</div>
+				<div class="chat-list-box">
+					<div class="chat-box d-flex align-items-center justify-content-between ps-3 pe-3">
+						<div class="d-flex">
+							<img src="./img/avatar_io.jpg" alt="">
+							<div>
+								<span class="bold-text">Sofia</span>
+								<span class="gray-text d-block">Ultimo accesso oggi alle 12:00</span>
+							</div>
+						</div>
+						<div class="mb-5">
+							<span class="gray-text">12:00</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="content-right d-flex flex-column justify-content-between">
+				<div class="box-header d-flex align-items-center justify-content-between ps-3 pe-3">
+					<div class="d-flex align-items-center">
+						<img src="./img/avatar_1.jpg" alt="">
+						<div>
+							<span class="bold-text d-block">Michele</span>
+							<span class="gray-text d-block">Ultimo accesso oggi alle 12:00</span>
+						</div>
+					</div>
+					<div>
+						<i class="fa-solid fa-magnifying-glass"></i>
+						<i class="fa-solid fa-thumbtack"></i>
+						<i class="fa-solid fa-ellipsis-vertical"></i>
+					</div>
+				</div>
+				<div class="display-chat-box d-flex  justify-content-center">
+					<div class="colum-message">
+						<div class="message message-send">
+							<div class="text">
+								Hai portato a spasso il cane?
+							</div>
+							<div class="time">
+								15:30
+							</div>
+						</div>
+						<div class="message message-send">
+							<div class="text">
+								Ricordati di stendere i panni 
+							</div>
+							<div class="time">
+								15:50
+							</div>
+						</div>
+						<div class="message message-recive">
+							<div class="text">
+								Tutto fatto!
+							</div>
+							<div class="time">
+								16:15
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="send-message-input-box d-flex">
+					<i class="fa-regular fa-face-smile" id="smile-icon"></i>
+					<div id="input-current-message" class="input-group flex-nowrap">
+						<input id="send-text-input" type="text" class="form-control" placeholder="Scrivi un messaggio" aria-label="Scrivi un messaggio" aria-describedby="addon-wrapping">
+					</div>
+					<i class="fa-solid fa-microphone" id="mic-icon"></i>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>

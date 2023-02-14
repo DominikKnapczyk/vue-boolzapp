@@ -1,0 +1,74 @@
+:root {
+  --container-width: 1200px;
+  --container-min-width: 300px;
+  --container-max-width: 1500px;
+}
+
+body {
+  background-color: #dbdbd3;
+  font-family: 'Roboto', sans-serif;
+
+  min-width: 400px;
+  overflow: auto;
+}
+
+img {
+  width: 70px;
+  border-radius: 100%;
+  margin-right: 8px;
+}
+
+.bold-text {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.gray-text {
+  font-size: 16px;
+  color: #b1b1b1;
+}
+
+.dark-gray-text {
+  font-size: 16px;
+  color: #547d90;
+  text-decoration: underline;
+}
+
+.fa-solid {
+  font-size: 25px;
+  color: #b1b1b1;
+  margin-left: 16px;
+  cursor: pointer;
+}
+
+.bell-box {
+  background-color: white;
+  padding: 20px 18px;
+  border-radius: 100%;
+}
+
+#bell {
+  color: #8edafc;
+  margin-left: 0px;
+}
+
+#smile-icon {
+  font-size: 20px;
+  margin: 10px 25px;
+  color: #666666;
+}
+
+#mic-icon {
+  font-size: 20px;
+  margin: 10px 25px;
+  color: #666666;
+}
+
+#search-chat {
+  margin-left: 0;
+  font-size: 14px;
+}
+
+.input-left {
+  width: 95%;
+}
