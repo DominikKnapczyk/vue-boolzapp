@@ -72,3 +72,11 @@ img {
 .input-left {
   width: 95%;
 }
+
+.pointer {
+  cursor: pointer;
+}
+
+.selected {
+  background-color: #eeeeee;
+}

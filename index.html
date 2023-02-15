@@ -27,6 +27,7 @@
 
 	<!-- SCRIPT -->
 	<script src="./js/main.js" defer></script>
+	<script src="./js/app.js" defer></script>
 
 	<!-- TITLE -->
 	<title>BoolZapp</title>
@@ -34,7 +35,7 @@
 
 <body>
 	<header></header>
-	<div class="container">
+	<div class="container" id="app">
 		<div class="content-box">
 			<div class="content-left">
 				<div class="box-header d-flex align-items-center justify-content-between ps-3 pe-3">
@@ -63,17 +64,19 @@
 						<input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Cerca o inizia una nuova chat" aria-describedby="basic-addon1">
 					</div>
 				</div>
-				<div class="chat-list-box">
-					<div class="chat-box d-flex align-items-center justify-content-between ps-3 pe-3">
-						<div class="d-flex">
-							<img src="./img/avatar_io.jpg" alt="">
-							<div>
-								<span class="bold-text">Sofia</span>
-								<span class="gray-text d-block">Ultimo accesso oggi alle 12:00</span>
+				<div class="contact-list">
+					<div class="chat-list-box pointer" v-for="(contact, index) in contacts" :key="index" :class="{ 'selected': currentIndex === index }" @click="currentIndex = index" @click="chatClick()">
+						<div class="chat-box d-flex align-items-center justify-content-between ps-3 pe-3">
+							<div class="d-flex">
+								<img :src="contact.image" alt="">
+								<div>
+									<span class="bold-text">{{ contact.name }}</span>
+									<span class="gray-text d-block">Ultimo messaggio inviato</span>
+								</div>
 							</div>
-						</div>
-						<div class="mb-5">
-							<span class="gray-text">12:00</span>
+							<div class="mb-5">
+								<span class="gray-text">12:00</span>
+							</div>
 						</div>
 					</div>
 				</div>

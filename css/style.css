@@ -54,15 +54,14 @@ header {
   height: 70px;
 }
 
-.chat-list-box {
-  /* height: 450px;
+.contact-list {
+  height: calc(100% - 100px - 90px - 70px);
   overflow: auto;
-  overflow-y: scroll; */
 }
 
 .chat-box {
   border-bottom: 1px solid #e4e4e4;
-  padding-bottom: 8px;
+  padding: 10px 0;
 }
 
 .send-message-input-box {
