@@ -7,6 +7,12 @@ createApp({
             // Indice del contatto selezionato  
             currentIndex: 0,
 
+            // valore dell'input di ricerca
+
+            searchTerm: '', 
+
+            newMessage: '',
+            
             // Dati dei contatti
             contacts: [
                 {
@@ -146,6 +152,7 @@ createApp({
         }
     },
 
+
 methods: {
   addMessage() {
     // Controlla se il testo del nuovo messaggio non è vuoto
@@ -173,7 +180,14 @@ methods: {
       };
       this.contacts[this.currentIndex].text.push(message);
     }, 1000);
+  },
+},
+
+computed: {
+  filteredContacts() {
+    return this.contacts.filter(contact => contact.name.toLowerCase().includes(this.searchTerm.toLowerCase()));
   }
 }
+
 }).mount('#app');
     

@@ -61,12 +61,12 @@
 				<div class="search-chat-box align-items-center d-flex justify-content-center">
 					<div class="input-group input-left mb-3">
 						<span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass" id="search-chat"></i></span>
-						<input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Cerca o inizia una nuova chat" aria-describedby="basic-addon1">
+						<input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Cerca o inizia una nuova chat" aria-describedby="basic-addon1" v-model="searchTerm">
 					</div>
 				</div>
 				<div class="contact-list">
 					<!-- loop attraverso i contatatti, stampando la lista -->
-					<div class="chat-list-box pointer" v-for="(contact, index) in contacts" :key="index" :class="{ 'selected': currentIndex === index }" @click="currentIndex = index">
+					<div class="chat-list-box pointer" v-for="(contact, index) in filteredContacts" :key="index" :class="{ 'selected': currentIndex === index }" @click="currentIndex = index">
 						<div class="chat-box d-flex align-items-center justify-content-between ps-3 pe-3">
 							<div class="d-flex">
 								<img :src="contact.image" alt="">
