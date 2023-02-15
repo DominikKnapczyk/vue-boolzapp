@@ -146,14 +146,21 @@ createApp({
         }
     },
 
-    methods: {
-
-
-    },
-
-    created() {
-
-
-      },
+methods: {
+  addMessage() {
+    // Controlla se il testo del nuovo messaggio non è vuoto
+    if (this.newMessage.trim() !== '') {
+      // Crea un oggetto che rappresenta il nuovo messaggio
+      const message = {
+        message: this.newMessage.trim(), // Testo del messaggio, pulito dai caratteri bianchi iniziali e finali
+        status: 'send', // Stato del messaggio: "send", probabilmente indica che il messaggio è stato inviato
+        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) // Formatta l'ora corrente come una stringa leggibile, ad es. "10:30"
+      };
+      // Aggiungi l'oggetto del messaggio all'array di messaggi della chat corrente
+      this.contacts[this.currentIndex].text.push(message);
+      // Ripulisci il campo del nuovo messaggio per permettere all'utente di inserirne uno nuovo
+      this.newMessage = '';
+    }
+  }
+}}).mount('#app');
     
-}).mount("#app")

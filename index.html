@@ -117,7 +117,7 @@
 				<div class="send-message-input-box d-flex">
 					<i class="fa-regular fa-face-smile" id="smile-icon"></i>
 					<div id="input-current-message" class="input-group flex-nowrap">
-						<input id="send-text-input" type="text" class="form-control" placeholder="Scrivi un messaggio" aria-label="Scrivi un messaggio" aria-describedby="addon-wrapping">
+						<input id="send-text-input" type="text" class="form-control" placeholder="Scrivi un messaggio" aria-label="Scrivi un messaggio" aria-describedby="addon-wrapping" v-model="newMessage" @keydown.enter="addMessage">
 					</div>
 					<i class="fa-solid fa-microphone" id="mic-icon"></i>
 				</div>
