@@ -65,7 +65,8 @@
 					</div>
 				</div>
 				<div class="contact-list">
-					<div class="chat-list-box pointer" v-for="(contact, index) in contacts" :key="index" :class="{ 'selected': currentIndex === index }" @click="currentIndex = index" @click="chatClick()">
+					<!-- loop attraverso i contatatti, stampando la lista -->
+					<div class="chat-list-box pointer" v-for="(contact, index) in contacts" :key="index" :class="{ 'selected': currentIndex === index }" @click="currentIndex = index">
 						<div class="chat-box d-flex align-items-center justify-content-between ps-3 pe-3">
 							<div class="d-flex">
 								<img :src="contact.image" alt="">
@@ -84,9 +85,9 @@
 			<div class="content-right d-flex flex-column justify-content-between">
 				<div class="box-header d-flex align-items-center justify-content-between ps-3 pe-3">
 					<div class="d-flex align-items-center">
-						<img src="./img/avatar_1.jpg" alt="">
+						<img :src="contacts[currentIndex].image" alt="">
 						<div>
-							<span class="bold-text d-block">Michele</span>
+							<span class="bold-text d-block">{{ contacts[currentIndex].name }}</span>
 							<span class="gray-text d-block">Ultimo accesso oggi alle 12:00</span>
 						</div>
 					</div>
@@ -98,28 +99,17 @@
 				</div>
 				<div class="display-chat-box d-flex  justify-content-center">
 					<div class="colum-message">
-						<div class="message message-send">
-							<div class="text">
-								Hai portato a spasso il cane?
+						<!-- loop attraverso i messaggi del contatto corrente -->
+						<div v-for="msg in contacts[currentIndex].text" :key="msg.current">
+							<!-- stampa i messaggi 'send' -->
+							<div v-if="msg.status === 'send'" class="message message-send">
+								<div class="text">{{ msg.message }}</div>
+								<div class="time">{{ msg.time }}</div>
 							</div>
-							<div class="time">
-								15:30
-							</div>
-						</div>
-						<div class="message message-send">
-							<div class="text">
-								Ricordati di stendere i panni 
-							</div>
-							<div class="time">
-								15:50
-							</div>
-						</div>
-						<div class="message message-recive">
-							<div class="text">
-								Tutto fatto!
-							</div>
-							<div class="time">
-								16:15
+							<!-- stampa i messaggi 'receive' -->
+							<div v-else-if="msg.status === 'recive'" class="message message-recive">
+								<div class="text">{{ msg.message }}</div>
+								<div class="time">{{ msg.time }}</div>
 							</div>
 						</div>
 					</div>
