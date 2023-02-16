@@ -80,3 +80,9 @@ img {
 .selected {
   background-color: #eeeeee;
 }
+
+.eliminatedMsg {
+  font-style: italic;
+  color: rgb(131, 131, 131);
+}
+

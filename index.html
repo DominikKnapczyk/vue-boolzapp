@@ -72,11 +72,11 @@
 								<img :src="contact.image" alt="">
 								<div>
 									<span class="bold-text">{{ contact.name }}</span>
-									<span class="gray-text d-block">Ultimo messaggio inviato</span>
+									<span class="gray-text d-block">{{ contact.text[ contact.text.length -1 ].message }}</span>
 								</div>
 							</div>
 							<div class="mb-5">
-								<span class="gray-text">12:00</span>
+								<span class="gray-text">{{ contact.text[ contact.text.length -1 ].time }}</span>
 							</div>
 						</div>
 					</div>
@@ -100,11 +100,15 @@
 				<div class="display-chat-box d-flex  justify-content-center">
 					<div class="colum-message">
 						<!-- loop attraverso i messaggi del contatto corrente -->
-						<div v-for="msg in contacts[currentIndex].text" :key="msg.current">
+						<div v-for="(msg, sendMsgIndex) in contacts[currentIndex].text" :key="msg.current">
 							<!-- stampa i messaggi 'send' -->
 							<div v-if="msg.status === 'send'" class="message message-send">
-								<div class="text">{{ msg.message }}</div>
+								<div class="text" :class="[msg.eliminated === true ? 'eliminatedMsg' : '']">{{ msg.message }}</div>
 								<div class="time">{{ msg.time }}</div>
+								<div class="message-info" @click="selectedMessage = selectedMessage === sendMsgIndex ? null : sendMsgIndex" v-if="!msg.eliminated"> > </div>
+								<div v-if="selectedMessage === sendMsgIndex" class="dropdown">
+									<button id="deleteButton" @click="deleteMessage(currentIndex, sendMsgIndex)">Elimina messaggio</button>
+								</div>
 							</div>
 							<!-- stampa i messaggi 'receive' -->
 							<div v-else-if="msg.status === 'recive'" class="message message-recive">
