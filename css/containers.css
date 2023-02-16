@@ -1,0 +1,94 @@
+:root {
+  --container-width: 1200px;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #d3dbda;
+  background-image: linear-gradient(to bottom, #009688 0%, #009688 150px, #d3dbda 150px, #a9adad 100%);
+  background-repeat: no-repeat;
+}
+
+/* CONTENITORE APPLICAZIONE */
+.content-box {
+  display: flex;
+
+  width: var(--container-width);
+  height: calc(var(--container-width) / 1.6);
+
+  margin: 50px;
+  background-color: white;
+
+  font-family: 'Roboto', sans-serif;
+}
+
+/* SEZIONE SINISTRA APPLICAZIONE */
+.content-left {
+  border-right: 1px solid #b1b1b1;
+  height: 100%;
+  width: calc(100% / 3);
+}
+
+/* SEZIONE DESTRA APPLICAZIONE */
+.content-right {
+  height: 100%;
+  width: calc((100% / 3)*2);
+}
+
+/* HEADER INTERNA ALL'APPLICAZIONE */
+.box-header {
+  height: 90px;
+  background-color: #eaeaea;
+}
+
+/* SEZIONE RIATTIVA NOTIFICHE */
+.notification-alert {
+  height: 100px;
+  background-color: #8edafc;
+}
+
+/* SEZIONE RICERCA CONTATTO */
+.search-chat-box {
+  height: 70px;
+}
+
+/* SEZIONE LISTA DEI CONTATTI */
+.contact-list {
+  height: calc(100% - 100px - 90px - 70px);
+  overflow: auto;
+}
+
+/* SEZIONE DI OGNI SINGOLO CONTATTO NELLA LISTA */
+.chat-box {
+  border-bottom: 1px solid #e4e4e4;
+  padding: 10px 0;
+}
+
+/* SEZIONE DELLA CHAT IN CORSO */
+.display-chat-box {
+  height: calc(100% - 90px - 50px);
+  background-image: url("../img/mine.jpg");
+  overflow: auto;
+}
+
+/* SEZIONE DOVE COMPAIONO I MESSAGGI */
+.colum-message {
+  width: 80%;
+}
+
+/* SEZIONE DELL'INPUT DEI MESSAGGI */
+.send-message-input-box {
+  background-color: #f3eeea;
+  padding: 5px 0;
+  height: 50px;
+}

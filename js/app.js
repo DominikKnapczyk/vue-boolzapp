@@ -4,15 +4,16 @@ createApp({
     data() {
         return {
 
-            // Indice del contatto selezionato  
+            // Indice inizilae del contatto selezionato  
             currentIndex: 0,
 
-            // valore dell'input di ricerca
-
+            // Valore iniziale dell'input di ricerca
             searchTerm: '', 
 
+            // Valore iniziale dell'input del nuovo messaggio
             newMessage: '',
 
+            // Valore iniziale del messaggio attualmente selezionato
             selectedMessage: '',
             
             // Dati dei contatti
@@ -188,6 +189,8 @@ createApp({
 
 
 methods: {
+
+  // FUNZIONE PER INVIARE MESSAGGI
   addMessage() {
     // Controlla se il testo del nuovo messaggio non è vuoto
     if (this.newMessage !== '') {
@@ -195,7 +198,8 @@ methods: {
       const message = {
         message: this.newMessage,
         status: 'send', 
-        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }), // Formatta l'ora corrente come una stringa leggibile
+        // Formatta l'ora corrente come una stringa leggibile
+        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }), 
         eliminated: false,
       };
       // Aggiungi l'oggetto del messaggio all'array di messaggi della chat corrente
@@ -206,6 +210,7 @@ methods: {
     }
   },
 
+  // FUNZIONE PER RISPONTERE "Ok" AL MESSAGGIO INVIATO
   replyMessage() {
     setTimeout(() => {
       const message = {
@@ -218,11 +223,12 @@ methods: {
     }, 1000);
   },
 
+  // FUNZIONE PER VIUSUALIZZARE IL MENU A TENDINA
   showDropdown(currentIndex) {
     this.selectedMessage = currentIndex;
-    // mostra il menu a tendina
   },
 
+  // FUNZIONE PER ELIMINARE IL MESSAGGIO
   deleteMessage(contactIndex, messageIndex) {
     const eliminatedMessage = {
       message: "Questo messaggio è stato eliminato",
@@ -237,11 +243,10 @@ methods: {
 
 computed: {
 
+  // FUNZIONE CHE PERMETTE DI FILTRARE I CONTATTI IN BASE AI CARATTERI INSERITI
   filteredContacts() {
     return this.contacts.filter(contact => contact.name.toLowerCase().includes(this.searchTerm.toLowerCase()));
   }
   
 }
-
-}).mount('#app');
-    
+}).mount('#app');    

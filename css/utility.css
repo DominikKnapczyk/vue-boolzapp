@@ -1,0 +1,28 @@
+.gray-text {
+  font-size: 16px;
+  color: #b1b1b1;
+}
+
+.dark-gray-text {
+  font-size: 16px;
+  color: #547d90;
+  text-decoration: underline;
+}
+
+.bold-text {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.selected {
+  background-color: #eeeeee;
+}
+
+.eliminatedMsg {
+  font-style: italic;
+  color: rgb(131, 131, 131);
+}

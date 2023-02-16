@@ -20,10 +20,11 @@
 
 	<!-- STYLE -->
 	<link rel="stylesheet" href="./css/style.css">
-	<link rel="stylesheet" href="./css/general.css">
+	<link rel="stylesheet" href="./css/utility.css">
+	<link rel="stylesheet" href="./css/containers.css">
 
 	<!-- VUE JS CND --> 
-	<script src="https://unpkg.com/vue@3"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.global.min.js"></script>
 
 	<!-- SCRIPT -->
 	<script src="./js/main.js" defer></script>
@@ -34,10 +35,12 @@
 </head>
 
 <body>
-	<header></header>
-	<div class="container" id="app">
+	<div id="app">
+		<!-- CONTENITORE APPLICAZIONE -->
 		<div class="content-box">
+			<!-- SEZIONE SINISTRA APPLICAZIONE -->
 			<div class="content-left">
+				<!-- HEADER SEZIONE SINISTRA -->
 				<div class="box-header d-flex align-items-center justify-content-between ps-3 pe-3">
 					<div>
 						<img src="./img/avatar_io.jpg" alt="">
@@ -49,24 +52,29 @@
 						<i class="fa-solid fa-ellipsis-vertical"></i>
 					</div>
 				</div>
+				<!-- SEZIONE ATTIVA NOTIFICHE -->
 				<div class="notification-alert d-flex align-items-center">
 					<div class="bell-box ms-3">
 						<i class="fa-solid fa-bell-slash" id="bell"></i>
 					</div>
 					<div class="ms-3">
 						<span class="bold-text d-block">Ricevi notifiche di nuovi messaggi</span>
-						<span class="dark-gray-text d-block">Attiva notifiche desktop</span>
+						<span class="dark-gray-text d-block pointer">Attiva notifiche desktop</span>
 					</div>
 				</div>
+				<!-- SEZIONE RICERCA CONTATTO -->
 				<div class="search-chat-box align-items-center d-flex justify-content-center">
 					<div class="input-group input-left mb-3">
 						<span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass" id="search-chat"></i></span>
+						<!-- input collegato a VUE JS -->
 						<input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Cerca o inizia una nuova chat" aria-describedby="basic-addon1" v-model="searchTerm">
 					</div>
 				</div>
+				<!-- SEZIONE LISTA DEI CONTATTI -->
 				<div class="contact-list">
-					<!-- loop attraverso i contatatti, stampando la lista -->
+					<!-- loop attraverso i contatatti, stampando la lista, in base al filtro -->
 					<div class="chat-list-box pointer" v-for="(contact, index) in filteredContacts" :key="index" :class="{ 'selected': currentIndex === index }" @click="currentIndex = index">
+						<!-- CONTENITORE DI OGNI SINGOLO CONTATTO -->
 						<div class="chat-box d-flex align-items-center justify-content-between ps-3 pe-3">
 							<div class="d-flex">
 								<img :src="contact.image" alt="">
@@ -82,7 +90,9 @@
 					</div>
 				</div>
 			</div>
+			<!-- SEZIONE DESTRA APPLICAZIONE -->
 			<div class="content-right d-flex flex-column justify-content-between">
+				<!-- HEADER SEZIONE DESTRA -->
 				<div class="box-header d-flex align-items-center justify-content-between ps-3 pe-3">
 					<div class="d-flex align-items-center">
 						<img :src="contacts[currentIndex].image" alt="">
@@ -97,30 +107,41 @@
 						<i class="fa-solid fa-ellipsis-vertical"></i>
 					</div>
 				</div>
+				<!-- SEZIONE CHE VISUALIZZA LA CHAT IN CORSO -->
 				<div class="display-chat-box d-flex  justify-content-center">
+					<!-- COLONNA NELLA QUALE VENGONO VISUALIZZATI I MESSAGGI -->
 					<div class="colum-message">
 						<!-- loop attraverso i messaggi del contatto corrente -->
 						<div v-for="(msg, sendMsgIndex) in contacts[currentIndex].text" :key="msg.current">
 							<!-- stampa i messaggi 'send' -->
 							<div v-if="msg.status === 'send'" class="message message-send">
+								<!-- messaggi inviati -->
 								<div class="text" :class="[msg.eliminated === true ? 'eliminatedMsg' : '']">{{ msg.message }}</div>
+								<!-- ora dei messaggi inviati -->
 								<div class="time">{{ msg.time }}</div>
-								<div class="message-info" @click="selectedMessage = selectedMessage === sendMsgIndex ? null : sendMsgIndex" v-if="!msg.eliminated"> > </div>
-								<div v-if="selectedMessage === sendMsgIndex" class="dropdown">
-									<button id="deleteButton" @click="deleteMessage(currentIndex, sendMsgIndex)">Elimina messaggio</button>
+								<!-- menu a tendina che consente di eliminare il messaggio -->
+								<div>
+									<div class="message-info" @click="selectedMessage = selectedMessage === sendMsgIndex ? null : sendMsgIndex" v-if="!msg.eliminated"> > </div>
+									<div v-if="selectedMessage === sendMsgIndex" class="dropdown">
+										<button id="deleteButton" @click="deleteMessage(currentIndex, sendMsgIndex)">Elimina messaggio</button>
+									</div>
 								</div>
 							</div>
 							<!-- stampa i messaggi 'receive' -->
 							<div v-else-if="msg.status === 'recive'" class="message message-recive">
+								<!-- messaggi ricevuti -->
 								<div class="text">{{ msg.message }}</div>
+								<!-- ora dei messaggi ricevuti -->
 								<div class="time">{{ msg.time }}</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				<!-- SEZIONE INPUT PER INVIARE MESSAGGI -->
 				<div class="send-message-input-box d-flex">
 					<i class="fa-regular fa-face-smile" id="smile-icon"></i>
 					<div id="input-current-message" class="input-group flex-nowrap">
+						<!-- input testuale collegato a VUE JS, che consente di inviare messaggi -->
 						<input id="send-text-input" type="text" class="form-control" placeholder="Scrivi un messaggio" aria-label="Scrivi un messaggio" aria-describedby="addon-wrapping" v-model="newMessage" @keydown.enter="addMessage">
 					</div>
 					<i class="fa-solid fa-microphone" id="mic-icon"></i>
@@ -129,5 +150,4 @@
 		</div>
 	</div>
 </body>
-
 </html>

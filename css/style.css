@@ -1,85 +1,11 @@
-header {
-  width: 100vw;
-  min-width: 400px;
-  height: 120px;
-  background-color: #009688;
+#search-chat {
+  margin-left: 0;
+  font-size: 14px;
 }
 
-.container {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.input-left {
+  width: 95%;
 }
-
-.content-box {
-
-  background-color: white;
-
-  width: var(--container-width);
-  min-width: var(--container-min-width);
-  max-width: var(--container-max-width);
-
-  height: calc(var(--container-width) / 1.6);
-  min-height: calc(var(--container-min-width) / 1.6);
-  max-height: calc(var(--container-max-width) / 1.6) ;
-
-  position: absolute;
-  top: -50px;
-  display: flex;
-}
-
-.content-left {
-  border-right: 1px solid #b1b1b1;
-  height: 100%;
-  width: calc(100% / 3);
-}
-
-.content-right {
-  height: 100%;
-  width: calc((100% / 3)*2);
-}
-
-.box-header {
-  height: 90px;
-  background-color: #eaeaea;
-}
-
-.notification-alert {
-  height: 100px;
-  background-color: #8edafc;
-}
-
-.search-chat-box {
-  height: 70px;
-}
-
-.contact-list {
-  height: calc(100% - 100px - 90px - 70px);
-  overflow: auto;
-}
-
-.chat-box {
-  border-bottom: 1px solid #e4e4e4;
-  padding: 10px 0;
-}
-
-.send-message-input-box {
-  background-color: #f3eeea;
-  padding: 5px 0;
-  height: 50px;
-}
-
-.display-chat-box {
-  height: calc(100% - 90px - 50px);
-  background-image: url("../img/mine.jpg");
-  overflow: auto;
-}
-
-.colum-message {
-  width: 80%;
-}
-
 
 .message {
   width: 45%;
@@ -87,6 +13,8 @@ header {
   padding: 10px 10px;
   border-radius: 8px;
   position: relative;
+  word-wrap: break-word;
+  padding-right: 35px;
 }
 
 .message-send {
@@ -101,10 +29,6 @@ header {
   clear: both;
 }
 
-.text {
-  margin-bottom: 10px;
-}
-
 .time {
   position: absolute;
   bottom: 4px; 
@@ -115,23 +39,67 @@ header {
 
 .message-info {
   position: absolute;
-  top: 4px; 
-  right: 8px; 
+  top: 0px; 
+  right: 6px; 
   font-size: 12px;
   transform: rotate(90deg);
   color: #999; 
   cursor: pointer;
   font-size: 15px;
-  font-family:'Courier New', Courier, monospace;
-  font-weight: bolder;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 900;
+}
+
+img {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  margin-right: 8px;
+}
+
+.fa-solid {
+  font-size: 25px;
+  color: #b1b1b1;
+  margin-left: 16px;
+  cursor: pointer;
+}
+
+.bell-box {
+  background-color: white;
+  padding: 20px 18px;
+  border-radius: 100%;
+}
+
+#bell {
+  color: #8edafc;
+  margin-left: 0px;
+}
+
+#smile-icon {
+  font-size: 20px;
+  margin: 10px 25px;
+  color: #666666;
+}
+
+#mic-icon {
+  font-size: 20px;
+  margin: 10px 25px;
+  color: #666666;
+}
+
+.dropdown {
+  position: absolute;
+  bottom: calc(100% - 55px);
+  right: 0;
 }
 
 #deleteButton {
-  position: absolute;
-  bottom: -14px; 
-  right: -10px; 
+  display: block;
+  margin: 0 auto;
 
   border: none;
   background-color: white;
+  box-shadow: 0px 1px 2px #888888;
   padding: 4px 8px;
+  border-radius: 4px;
 }
